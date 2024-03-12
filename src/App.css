@@ -1,38 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading-1 {
+  font-size: 5.5rem;
+  line-height: 7.6rem;
+  font-family: 'Montserrat Alternates' ;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.heading-2 {
+  font-size: 4.125rem;
+  line-height: 5.75rem;
+  font-family: 'Montserrat Alternates' ;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.heading-3 {
+  font-size: 3.125rem;
+  line-height: 4.375rem;
+  font-family: 'Arsenal';
+}
+.heading-3-Montserrat {
+  font-size: 3.125rem;
+  line-height: 4.375rem;
+  font-family: 'Montserrat Alternates';
+}
+
+.heading-4 {
+  font-size: 2.313rem;
+  line-height: 3.25rem;
+  font-family: 'Arsenal';
+}
+
+.heading-5 {
+  font-size: 1.688rem;
+  line-height: 2.375rem;
+  font-family: 'Arsenal';
+  font-weight: 600;
+}
+
+.heading-6 {
+  font-size: 1.313rem;
+  line-height: 1.875rem;
+  font-family: 'Arsenal';
+  font-style: italic;
+}
+
+
+.paragraph {
+  font-size: 1.313rem;
+  line-height: 1.875rem;
+  font-family: 'Arsenal';
+}
+
+.header-heading {
+  margin: 0px;
+  padding-left: 1.5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.plant_image_size {
+  height: 26.25rem;
+  width: 26.25rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+

@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Home } from "./Home.jsx";
+import { Plant } from "./Plant.jsx";
+import { context } from "./Context.js";
+import { SearchSection } from "./SearchSection.jsx";
+import { useContext } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { state } = useContext(context);
+    const { visibleSection } = state;
+
+    const renderVisibleSection = () => {
+        switch (visibleSection) {
+            case "plantDetails":
+                return (
+                    <div>
+                        <Plant />
+                    </div>
+                );
+            case "searchSection":
+                return <SearchSection />;
+            case "home":
+            default:
+                return <SearchSection />;
+        }
+    };
+
+    return <div className="App">{renderVisibleSection()}</div>;
 }
 
 export default App;

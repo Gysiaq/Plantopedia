@@ -1,0 +1,65 @@
+/* .main-container {
+    display: flex;
+    justify-content: center;
+} */
+.search-container {
+    margin-top: 8rem;
+    margin-bottom: 6.125rem;
+    
+}
+
+.input-search {
+width: 28rem;
+height: 2.5rem;
+background-color: rgba(150, 146, 146, 0.15);
+border: 2px solid rgba(150, 146, 146, 0.75);
+text-indent: 12px;
+border-radius: 20px;
+}
+
+
+
+.button-search {
+    height: 2.5rem;
+    border: none;
+}
+
+.search-component-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.search-component {
+    width: 18.5rem;
+    height: 12.5rem;
+    border: solid 4px #669057;
+    background-color: #E6EDCE;
+    margin: 0.5rem;
+    position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+.search-component:hover {
+    border: solid 10px #669057;
+    background-color: #D3E1A6;
+    top: -10px;
+    -webkit-transition: all 0.4s; 
+    -moz-transition: all 0.4s; 
+    transition: all 0.4s;
+    cursor: pointer;
+
+}
+
+.plant-common-name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.plant-scientific-name {
+    margin-top: 0px;
+    margin-bottom: 8px;
+
+}

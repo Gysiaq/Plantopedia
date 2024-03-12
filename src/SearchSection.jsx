@@ -1,103 +1,82 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { PLANT_API_KEY } from "./API_key";
+import "./SearchSection.css";
+import { Header } from "./Header";
+import { useDebounce } from "./hooks/useDebounce";
+import { context } from "./Context";
+
 export const SearchSection = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [word, setWord] = useState(null);
-    const [search, setSearch] = useState(null);
+    const [searchPlantFromInput, setSearchPlantFromInput] = useState([]);
+
+    const { dispatch } = useContext(context);
+
+    // const N = 337;
+    // const totalNumberOfPage = Array.from(
+    //     { length: N },
+    //     (_, index) => index + 1
+    // );
+    async function fetchData() {
+        try {
+            const response = await axios.get(
+                `https://perenual.com/api/species-list?key=${PLANT_API_KEY}&page=${currentPage}&q=${searchPlantFromInput}`
+            );
+
+            setData(response.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+    const debouncedFetchData = useDebounce(fetchData, 500);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get(
-                    `https://perenual.com/api/species-list?key=sk-aiPx65e35af7d61034398&page=${currentPage}`
-                );
+        debouncedFetchData();
+    }, [currentPage, searchPlantFromInput]);
 
-                setData(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-
-        fetchData();
-    }, [currentPage]);
-    console.log(data);
-
-    const handleSubmitSearch = (e) => {
-        e.preventDefault();
+    const handleOpenInformationAboutPlant = (plant) => {
+        dispatch({ type: "set_visible_section", payload: "plantDetails" });
+        dispatch({ type: "set_plant_information", payload: plant });
     };
 
-    const handleWordChange = () => {
-        setWord();
-        console.log(word);
-    };
-    const alphabet = [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "k",
-        "j",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-    ];
     return (
-        <div>
-            <div>
+        <div className="main-container">
+            <Header />
+            <div className="search-container">
                 <input
+                    className="input-search paragraph"
+                    placeholder="Search..."
                     onChange={(e) => {
-                        return setSearch(e.target.value);
+                        return setSearchPlantFromInput(e.target.value);
                     }}
                 />
-                <button type="submit" onSubmit={handleSubmitSearch}></button>
             </div>
 
-            {alphabet.map((letterOfAlphabet) => (
-                <button onClick={handleWordChange}>{letterOfAlphabet}</button>
-            ))}
-
-            <div>
-                <p>Total result: {data?.total}</p>
-                {/* 
-TODO: WARUNEK DLA PRZYCISKU Z LICZBĄ: JEŚLI JEST NACIŚNIETY TO WTEDY FILTRUJE PO ALFABECIE JAK NIE JEST TO POAKZUJE WSZYTSKO
-TODO: SEARCH DODAĆ   
-*/}
-                {data.data?.map((plants) => {
+            <div className="search-component-container">
+                {data.data?.map((plant) => {
                     return (
-                        <div key={plants.id}>
-                            {/* <img
-                                className=""
-                                src={plants.default_image?.original_url}
-                            /> */}
-                            <p className="">{plants.common_name}</p>
-                            <p className="">{plants.scientific_name}</p>
-                        </div>
+                        <button
+                            className="search-component"
+                            key={plant.id}
+                            onClick={() =>
+                                handleOpenInformationAboutPlant(plant)
+                            }
+                        >
+                            <p className="plant-common-name heading-5">
+                                {plant.common_name}
+                            </p>
+                            <p className="plant-scientific-name heading-6">
+                                {plant.scientific_name}
+                            </p>
+                        </button>
                     );
                 })}
-                <input
-                    onChange={(e) => {
-                        return setCurrentPage(e.target.value);
-                    }}
-                ></input>
             </div>
+            {/* <div>
+                <button></button>
+                <button></button>
+            </div> */}
         </div>
     );
 };

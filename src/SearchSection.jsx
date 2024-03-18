@@ -4,7 +4,11 @@ import { PLANT_API_KEY } from "./API_key";
 import "./SearchSection.css";
 import { Header } from "./Header";
 import { useDebounce } from "./hooks/useDebounce";
-import { context } from "./Context";
+import { context } from "./context/Context";
+import {
+    SET_VISIBLE_SECTION,
+    SET_PLANT_INFORMATION,
+} from "./context/ActionTypes";
 
 export const SearchSection = () => {
     const [data, setData] = useState([]);
@@ -36,8 +40,8 @@ export const SearchSection = () => {
     }, [currentPage, searchPlantFromInput]);
 
     const handleOpenInformationAboutPlant = (plant) => {
-        dispatch({ type: "set_visible_section", payload: "plantDetails" });
-        dispatch({ type: "set_plant_information", payload: plant });
+        dispatch({ type: SET_VISIBLE_SECTION, payload: "plantDetails" });
+        dispatch({ type: SET_PLANT_INFORMATION, payload: plant });
     };
 
     return (
@@ -63,10 +67,14 @@ export const SearchSection = () => {
                                 handleOpenInformationAboutPlant(plant)
                             }
                         >
-                            <p className="plant-common-name heading-5">
+                            <img
+                                className="plant-image"
+                                src={plant?.default_image?.regular_url}
+                            />
+                            <p className="plant-common-name heading-6">
                                 {plant.common_name}
                             </p>
-                            <p className="plant-scientific-name heading-6">
+                            <p className="plant-scientific-name paragraph">
                                 {plant.scientific_name}
                             </p>
                         </button>

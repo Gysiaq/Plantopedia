@@ -1,7 +1,7 @@
 import "./App.css";
 import { Home } from "./Home.jsx";
 import { Plant } from "./Plant.jsx";
-import { context } from "./Context.js";
+import { context } from "./context/Context.js";
 import { SearchSection } from "./SearchSection.jsx";
 import { useContext } from "react";
 

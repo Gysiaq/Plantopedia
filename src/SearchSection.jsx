@@ -19,8 +19,6 @@ export const SearchSection = () => {
     const [searchPlantFromInput, setSearchPlantFromInput] = useState([]);
     const { dispatch } = useContext(context);
 
-    console.log(currentPage);
-
     async function fetchData() {
         try {
             const response = await axios.get(

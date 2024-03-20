@@ -1,14 +1,33 @@
 .plant-container {
-    background-image: url("./images/background_plant_section.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+   width: 100%;
+    height: 100%;
+    background-image: url("./images/search_background.png");
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -100;
 }
+
+.button-return-to-search {
+   border: none;
+   background: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.3rem;
+   color: #669057;
+   cursor: pointer;
+   margin-top: 5rem;
+   margin-left: 14em;
+   font-weight: 600;
+ }
 
 .main-plant-details-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+  
+    gap: 3rem;
     margin-top: 2.5rem;
     margin-left: 10rem;
     margin-right: 10rem;
@@ -18,33 +37,31 @@
     width: 22rem;
     border: 3px solid #669057;
   }
-  
-  .button-return-to-search {
-    border: none;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3rem;
-    color: #669057;
-    cursor: pointer;
-    margin-top: 5rem;
-    margin-left: 15em;
-    font-weight: 600;
-  }
 
   .plant-names-and-description-container {
-    margin-left: 5rem;
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+   
+  }
+
+  .plant-names-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
   }
 
   .plant-scientific-name {
+  
     font-style: italic;
     font-weight: 400;
   }
 
+
   .plant-description {
-     
-     max-width: 50rem;
+   margin-top: 1rem;
+     max-width: 45rem;
      max-height: 10rem;
   }
 
@@ -52,13 +69,9 @@
  .details-container {
     display: flex;
     justify-content: center;
-    
     gap: 10rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
  } 
- /* .general-information-container{
-
- } */
 
 .pair-of-information-details-container {
    display: flex;
@@ -143,6 +156,7 @@
    flex-direction: row;
    gap: 1.5rem;
    margin-top: 3rem;
+   margin-bottom: 3rem;
 }
 
 
@@ -158,8 +172,8 @@
  .hardiness_location {
     height: 30rem;
     width: 60rem;
-   
-    border: none;
+   border: 2px solid #d9d9d9;
+   background: #ffff;
     scrollbar-width: none;
     overflow: hidden;
     margin-bottom: 3rem;
@@ -191,4 +205,122 @@
    align-items: center;
    flex-direction: column;
    
+}
+
+.plant-description-for-1000px-width {
+   display: none;
+   visibility: hidden;
+}
+
+
+@media (max-width: 1200px) {
+
+   
+
+
+   .plant-image-size {
+      height: 18rem;
+      width: 18rem;
+      border: 3px solid #669057;
+    }
+
+    .plant-description {
+      margin-top: 1rem;
+        max-width: 50rem;
+        max-height: 16rem;
+     }
+
+     .details-container {
+      gap: 10rem;
+      margin-top: 5rem;
+   } 
+
+   .hardiness_location {
+      height: 20rem;
+      width: 40rem;
+      
+   }
+}
+
+@media (max-width: 1000px) {
+
+   .main-plant-details-container {
+      gap: 1.5rem;
+   }
+
+   .plant-names-and-description-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+     }
+   
+     .plant-scientific-name {
+     
+       font-style: italic;
+       font-weight: 400;
+     }
+   
+     .plant-description {
+      display: none;
+      visibility: hidden;
+     }
+
+     .plant-description-for-1000px-width-container {
+      display: flex;
+      justify-content: center;
+     }
+
+     .plant-description-for-1000px-width {
+      display: block;
+      visibility: visible;
+      margin-top: 2rem;
+      width: 40rem;
+     }
+}
+
+
+@media (max-width: 767px) {
+
+   .plant-container {
+      background: none;
+   }
+
+   .button-return-to-search  {
+      margin-left: 2rem;
+   }
+
+   .plant-image-size {
+      height: 14rem;
+      width: 14rem;
+      border: 3px solid #669057;
+    }
+   .main-plant-details-container {
+      flex-direction: column-reverse;
+      gap: 2rem;
+      
+   }
+
+   .plant-description-for-1000px-width {
+      display: block;
+      visibility: visible;
+      margin-top: 2rem;
+      width: 20rem;
+      
+     }
+
+     .hardiness-level-container {
+      flex-direction: column;
+     }
+
+     .circle {
+      width: 24px;
+      height: 24px;
+     }
+
+     .hardiness_location {
+      height: 15rem;
+      width: 30rem;
+      
+   }
 }

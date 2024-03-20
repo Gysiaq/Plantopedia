@@ -10,6 +10,22 @@
   text-align: center;
 }
 
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-family: 'Arsenal';
+}
+
+.header-heading {
+  margin: 0px;
+  padding-left: 1.5rem;
+  display: flex;
+  margin-top: 1rem;
+  
+}
+
+@media (min-width: 1200px) {
+  
 .heading-1 {
   font-size: 5.61rem;
   line-height: 7.854rem;
@@ -38,6 +54,12 @@
   line-height: 3.3166rem;
   font-family: 'Arsenal';
 }
+.heading-4-Montserrat {
+  font-size: 2.369rem;
+  line-height: 3.3166rem;
+  font-family: 'Montserrat Alternates';
+  color: #669057;
+}
 
 .heading-5 {
   font-size: 1.777rem;
@@ -46,27 +68,140 @@
   font-weight: 600;
 }
 
+.heading-5-Montserrat {
+  font-size: 1.777rem;
+  line-height: 2.4878rem;
+  font-family: 'Montserrat Alternates';
+  font-weight: 600;
+  color: #669057;
+}
+
 .heading-6 {
   font-size: 1.333rem;
   line-height: 1.8662rem;
-  font-family: 'Arsenal';
- 
+  font-family: 'Arsenal'; 
+}
+
 }
 
 
-.paragraph {
-  font-size: 1rem;
-  line-height: 1.4rem;
-  font-family: 'Arsenal';
-}
-
-.header-heading {
-  margin: 0px;
-  padding-left: 1.5rem;
-  display: flex;
+@media (min-width: 768px) {
+  .heading-1 {
+    font-size: 2.986rem;
+    line-height: 4.180rem;
+    font-family: 'Montserrat Alternates' ;
+  }
   
+  .heading-2 {
+    font-size: 2.488rem;
+    line-height: 3.483rem;
+    font-family: 'Montserrat Alternates' ;
+  }
+  
+  .heading-3 {
+    font-size: 2.074rem;
+    line-height: 2.904rem;
+    font-family: 'Arsenal';
+  }
+  .heading-3-Montserrat {
+    font-size: 2.074rem;
+    line-height: 2.904rem;
+    font-family: 'Montserrat Alternates';
+  }
+  
+  .heading-4 {
+    font-size: 1.728rem;
+    line-height: 2.419rem;
+    font-family: 'Arsenal';
+  }
+  .heading-4-Montserrat {
+    font-size: 1.728rem;
+    line-height: 2.419rem;
+    font-family: 'Montserrat Alternates';
+    color: #669057;
+  }
+  
+  .heading-5 {
+    font-size: 1.44rem;
+    line-height: 2.016rem;
+    font-family: 'Arsenal';
+    font-weight: 600;
+  }
+  
+  .heading-5-Montserrat {
+    font-size: 1.44rem;
+    line-height: 2.016rem;
+    font-family: 'Montserrat Alternates';
+    font-weight: 600;
+    color: #669057;
+  }
+  
+  .heading-6 {
+    font-size: 1.2rem;
+    line-height: 1.68rem;
+    font-family: 'Arsenal'; 
+  }
 }
 
+
+
+@media (max-width: 767px) {
+  .heading-1 {
+    font-size: 2.027rem;
+    line-height: 2.838rem;
+    font-family: 'Montserrat Alternates' ;
+  }
+  
+  .heading-2 {
+    font-size: 1.802rem;
+    line-height: 2.523rem;
+    font-family: 'Montserrat Alternates' ;
+  }
+  
+  .heading-3 {
+    font-size: 1.602rem;
+    line-height: 2.243rem;
+    font-family: 'Arsenal';
+  }
+  .heading-3-Montserrat {
+    font-size: 1.602rem;
+    line-height: 2.243rem;
+    font-family: 'Montserrat Alternates';
+  }
+  
+  .heading-4 {
+    font-size: 1.424rem;
+    line-height: 1.994rem;
+    font-family: 'Arsenal';
+  }
+  .heading-4-Montserrat {
+    font-size: 1.424rem;
+    line-height: 1.994rem;
+    font-family: 'Montserrat Alternates';
+    color: #669057;
+  }
+  
+  .heading-5 {
+    font-size: 1.266rem;
+    line-height: 1.772rem;
+    font-family: 'Arsenal';
+    font-weight: 600;
+  }
+  
+  .heading-5-Montserrat {
+    font-size: 1.266rem;
+    line-height: 1.772rem;
+    font-family: 'Montserrat Alternates';
+    font-weight: 600;
+    color: #669057;
+  }
+  
+  .heading-6 {
+    font-size: 1.125rem;
+    line-height: 1.575rem;
+    font-family: 'Arsenal'; 
+  }
+}
 
 
 

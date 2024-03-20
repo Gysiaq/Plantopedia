@@ -9,19 +9,18 @@ import {
     SET_VISIBLE_SECTION,
     SET_PLANT_INFORMATION,
 } from "./context/ActionTypes";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import noImage from "./images/noImage.jpg";
 
 export const SearchSection = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchPlantFromInput, setSearchPlantFromInput] = useState([]);
-
     const { dispatch } = useContext(context);
 
-    // const N = 337;
-    // const totalNumberOfPage = Array.from(
-    //     { length: N },
-    //     (_, index) => index + 1
-    // );
+    console.log(currentPage);
+
     async function fetchData() {
         try {
             const response = await axios.get(
@@ -69,7 +68,11 @@ export const SearchSection = () => {
                         >
                             <img
                                 className="plant-image"
-                                src={plant?.default_image?.regular_url}
+                                src={
+                                    plant?.default_image?.regular_url
+                                        ? plant?.default_image?.regular_url
+                                        : noImage
+                                }
                             />
                             <p className="plant-common-name heading-6">
                                 {plant.common_name}
@@ -81,10 +84,18 @@ export const SearchSection = () => {
                     );
                 })}
             </div>
-            {/* <div>
-                <button></button>
-                <button></button>
-            </div> */}
+            <div className="page-number-navigation">
+                <Stack spacing={2}>
+                    <Pagination
+                        count={337}
+                        defaultValue={1}
+                        defaultPage={1}
+                        page={currentPage}
+                        onChange={(e, value) => setCurrentPage(value)}
+                        size="large"
+                    />
+                </Stack>
+            </div>
         </div>
     );
 };

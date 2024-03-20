@@ -5,6 +5,7 @@ import "./Plant.css";
 import axios from "axios";
 import { PLANT_API_KEY } from "./API_key";
 import { SET_VISIBLE_SECTION } from "./context/ActionTypes";
+import noImage from "./images/noImage.jpg";
 
 export const Plant = () => {
     const { state, dispatch } = useContext(context);
@@ -30,6 +31,7 @@ export const Plant = () => {
     const plantHardinessLevel = plant?.hardiness?.max;
 
     console.log(plant);
+
     return (
         <div className="plant-container">
             <Header />
@@ -58,25 +60,42 @@ export const Plant = () => {
                 </svg>{" "}
                 Return to search
             </button>
+
             <div className="main-plant-details-container">
                 <img
                     className="plant-image-size"
-                    src={plantInf?.default_image.regular_url}
+                    src={
+                        plantInf?.default_image?.regular_url
+                            ? plantInf?.default_image?.regular_url
+                            : noImage
+                    }
                 />
                 <div className="plant-names-and-description-container">
-                    <h2 className="heading-3 plant-common-name">
-                        {plant?.common_name}
-                    </h2>
-                    <h3 className="heading-5 plant-scientific-name">
-                        {plant?.scientific_name}
-                    </h3>
-                    <p className="paragraph plant-description">
-                        {plant?.description}
-                    </p>
+                    <div className="plant-names-container">
+                        <h2 className="heading-3 plant-common-name">
+                            {plant?.common_name}
+                        </h2>
+                        <h3 className="heading-5 plant-scientific-name">
+                            {plant?.scientific_name}
+                        </h3>
+
+                        <p className="paragraph plant-description">
+                            {plant?.description}
+                        </p>
+                    </div>
                 </div>
             </div>
+            <div className="plant-description-for-1000px-width-container">
+                <p className="paragraph plant-description-for-1000px-width">
+                    {plant?.description}
+                </p>
+            </div>
+
             <div className="details-container">
                 <div className="information-details-container">
+                    <h3 className="heading-4-Montserrat">
+                        General Information
+                    </h3>
                     <div className="pair-of-information-details-container">
                         {plant?.sunlight && (
                             <div className="icon-description-plant-information">
@@ -222,7 +241,7 @@ export const Plant = () => {
                 </div>
             </div>
             <div className="hardiness-level-container">
-                <h5 className="heading-5 hardiness-level-text">
+                <h5 className="heading-5-Montserrat hardiness-level-text">
                     Hardiness level:
                 </h5>
                 <div className="difficulty-level-circle-position">
@@ -237,9 +256,8 @@ export const Plant = () => {
                     ))}
                 </div>
             </div>
-
-            <h5 className="heading-5 hardiness-location-text">
-                Hardiness location
+            <h5 className="heading-5-Montserrat hardiness-location-text">
+                Incidence
             </h5>
             <iframe
                 className="hardiness_location"
